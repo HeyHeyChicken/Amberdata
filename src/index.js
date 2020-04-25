@@ -43,9 +43,8 @@ class Amberdata extends LIBRARIES.Skill {
   /* #################################################################################### */
 
   CheckApiKey(){
-    if(this.Settings.APIKey === null) {
-      const ERROR = "You have to set the Amberdata API key.";
-      this.Main.Log(ERROR);
+    if(this.Settings.APIKey === null || this.Settings.APIKey === "") {
+      this.Main.Log(false, "You have to set the Amberdata API key.");
       return false;
     }
     return true;
