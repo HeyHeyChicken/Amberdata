@@ -9,32 +9,32 @@ class Amberdata extends LIBRARIES.Skill {
     const SELF = this;
 
     this.Main.Manager.addAction("Amberdata.wallet.get", function(_intent, _socket) {
-      SELF.CheckApiKey();
-
-      const CURRENCIES = {};
-      for(let i in _settings.Wallet) {
-        if(_settings.Wallet[i] > 0) {
-          CURRENCIES[i] = _settings.Wallet[i];
-        }
-      }
-
-      const AMOUNTS = {};
-      for(let i in CURRENCIES) {
-        SELF.RequestPricePairsLatest(i, function(_price) {
-          AMOUNTS[i] = _price;
-
-          if(Object.keys(CURRENCIES).length === Object.keys(AMOUNTS).length) {
-            let amount = 0;
-
-            for(let j in CURRENCIES) {
-              amount += CURRENCIES[j] * AMOUNTS[j];
-            }
-
-            _intent.Variables.value = Math.floor(amount);
-            _intent.answer(_socket);
+      if(SELF.CheckApiKey()){
+        const CURRENCIES = {};
+        for(let i in _settings.Wallet) {
+          if(_settings.Wallet[i] > 0) {
+            CURRENCIES[i] = _settings.Wallet[i];
           }
-        });
-      }
+        }
+
+        const AMOUNTS = {};
+        for(let i in CURRENCIES) {
+          SELF.RequestPricePairsLatest(i, function(_price) {
+            AMOUNTS[i] = _price;
+
+            if(Object.keys(CURRENCIES).length === Object.keys(AMOUNTS).length) {
+              let amount = 0;
+
+              for(let j in CURRENCIES) {
+                amount += CURRENCIES[j] * AMOUNTS[j];
+              }
+
+              _intent.Variables.value = Math.floor(amount);
+              _intent.answer(_socket);
+            }
+          });
+        }
+      };
     });
   }
 
@@ -46,8 +46,9 @@ class Amberdata extends LIBRARIES.Skill {
     if(this.Settings.APIKey === null) {
       const ERROR = "You have to set the Amberdata API key.";
       this.Main.Log(ERROR);
-      throw new Error(ERROR);
+      return false;
     }
+    return true;
   }
 
   RequestPricePairsLatest(_currency, _callback) {
