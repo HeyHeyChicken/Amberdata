@@ -65,7 +65,6 @@ class Amberdata extends LIBRARIES.Skill {
         const MESSAGE = "You are not authorized to request the Amberdata server.";
         SELF.Main.Log(false, MESSAGE);
         throw MESSAGE;
-        return;
       }
 
       const PRICE = parseFloat(body.payload[PAIR].price);
