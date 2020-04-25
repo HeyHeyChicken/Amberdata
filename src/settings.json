@@ -2,10 +2,10 @@
   "FolderName": "Amberdata",
   "Settings": {
     "Currency": "eur",
-    "APIKey": "",
+    "APIKey": null,
     "Wallet": {
       "BTC": 0,
-      "ETH": 8.6844,
+      "ETH": ,
       "LTC": 0,
       "ZEC": 0,
       "BCH": 0,
