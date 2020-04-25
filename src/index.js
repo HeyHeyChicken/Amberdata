@@ -60,8 +60,15 @@ class Amberdata extends LIBRARIES.Skill {
       if (error){
         throw new Error(error);
       }
+      body = JSON.parse(body);
+      if(body.message === "Forbidden"){
+        const MESSAGE = "You are not authorized to request the Amberdata server.";
+        SELF.Main.Log(false, MESSAGE);
+        throw MESSAGE;
+        return;
+      }
 
-      const PRICE = parseFloat(JSON.parse(body).payload[PAIR].price);
+      const PRICE = parseFloat(body.payload[PAIR].price);
 
       if(_callback !== undefined) {
         _callback(PRICE);
