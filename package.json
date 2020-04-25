@@ -1,0 +1,19 @@
+{
+  "name": "nova-amberdata",
+  "version": "1.0.0",
+  "description": "This skill will allow you to know the value of your cryocurrency portfolio.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HeyHeyChicken/NOVA-Amberdata.git"
+  },
+  "author": "Antoine Duval",
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "bugs": {
+    "url": "https://github.com/HeyHeyChicken/NOVA-Amberdata/issues"
+  },
+  "homepage": "https://github.com/HeyHeyChicken/NOVA-Amberdata#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}

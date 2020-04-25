@@ -1,0 +1,25 @@
+{
+  "name": "Amberdata",
+  "data": [
+    {
+      "intent": "Amberdata.wallet.get",
+      "utterances": [
+        "Quel est le montant de mon portefeuille",
+        "Donne-moi le montant de mon portefeuille",
+        "Quelle est la valeur de mon portefeuille",
+        "Donne-moi la valeur de mon portefeuille",
+        "Quel est le montant total de mon portefeuille",
+        "Donne-moi le montant total de mon portefeuille",
+        "Quelle est la valeur totale de mon portefeuille",
+        "Donne-moi la valeur totale de mon portefeuille"
+      ],
+      "answers": [
+        "Le montant total de votre portefeuille est de %value% euros.",
+        "Le montant de votre portefeuille est de %value% euros.",
+        "La valeur totale de votre portefeuille est de %value% euros.",
+        "La valeur de votre portefeuille est de %value% euros.",
+        "%value% euros."
+      ]
+    }
+  ]
+}
