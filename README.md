@@ -4,8 +4,7 @@
 </a>
 
 **NOVA - Amberdata** is a skill for your [NOVA](//github.com/HeyHeyChicken/NOVA) assistant.<br>
-This skill will allow your assistant to Amberdata.
-
+This skill will allow your NOVA assistant to know the value of your cryocurrency portfolio.
 <br>
 
 <img src="https://github.com/HeyHeyChicken/NOVA-Amberdata/blob/master/resources/screenshot.jpg" alt="NOVA" width="800">
