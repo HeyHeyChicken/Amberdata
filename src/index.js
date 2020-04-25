@@ -8,13 +8,9 @@ class Amberdata extends LIBRARIES.Skill {
     super(_main, _settings);
     const SELF = this;
 
-    if(this.Settings.APIKey === null) {
-      const ERROR = "You have to set the Amberdata API key.";
-      this.Main.Log(ERROR);
-      throw new Error(ERROR);
-    }
-
     this.Main.Manager.addAction("Amberdata.wallet.get", function(_intent, _socket) {
+      SELF.CheckApiKey();
+
       const CURRENCIES = {};
       for(let i in _settings.Wallet) {
         if(_settings.Wallet[i] > 0) {
@@ -45,6 +41,14 @@ class Amberdata extends LIBRARIES.Skill {
   /* #################################################################################### */
   /* ### FUNCTIONS ###################################################################### */
   /* #################################################################################### */
+
+  CheckApiKey(){
+    if(this.Settings.APIKey === null) {
+      const ERROR = "You have to set the Amberdata API key.";
+      this.Main.Log(ERROR);
+      throw new Error(ERROR);
+    }
+  }
 
   RequestPricePairsLatest(_currency, _callback) {
     const PAIR = _currency.toLowerCase() + "_" + this.Settings.Currency;
