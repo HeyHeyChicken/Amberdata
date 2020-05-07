@@ -17,22 +17,27 @@ class Amberdata extends LIBRARIES.Skill {
           }
         }
 
-        const AMOUNTS = {};
-        for(let i in CURRENCIES) {
-          SELF.RequestPricePairsLatest(i, function(_price) {
-            AMOUNTS[i] = _price;
+        if(Object.keys(CURRENCIES).length > 0){
+          const AMOUNTS = {};
+          for(let i in CURRENCIES) {
+            SELF.RequestPricePairsLatest(i, function(_price) {
+              AMOUNTS[i] = _price;
 
-            if(Object.keys(CURRENCIES).length === Object.keys(AMOUNTS).length) {
-              let amount = 0;
+              if(Object.keys(CURRENCIES).length === Object.keys(AMOUNTS).length) {
+                let amount = 0;
 
-              for(let j in CURRENCIES) {
-                amount += CURRENCIES[j] * AMOUNTS[j];
+                for(let j in CURRENCIES) {
+                  amount += CURRENCIES[j] * AMOUNTS[j];
+                }
+
+                _intent.Variables.value = Math.floor(amount);
+                _intent.answer(_socket);
               }
-
-              _intent.Variables.value = Math.floor(amount);
-              _intent.answer(_socket);
-            }
-          });
+            });
+          }
+        }
+        else{
+          _intent.error(_socket, "noCrypto");
         }
       }
       else{

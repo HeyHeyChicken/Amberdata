@@ -23,6 +23,9 @@
       "errors": {
         "noAPIKey": [
           "Afin d'utiliser le skill Amberdata, vous devez fournir une clé API que vous trouverez sur le site https://amberdata.io."
+        ],
+        "noCrypto": [
+          "Il semblerait que vous ne m'ayez pas renseigné votre portefeuille."
         ]
       }
     }
