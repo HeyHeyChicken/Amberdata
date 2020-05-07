@@ -19,7 +19,12 @@
         "La valeur totale de votre portefeuille est de %value% euros.",
         "La valeur de votre portefeuille est de %value% euros.",
         "%value% euros."
-      ]
+      ],
+      "errors": {
+        "noAPIKey": [
+          "Afin d'utiliser le skill Amberdata, vous devez fournir une clé API que vous trouverez sur le site https://amberdata.io."
+        ]
+      }
     }
   ]
 }

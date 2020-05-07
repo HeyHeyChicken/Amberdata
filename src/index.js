@@ -34,7 +34,10 @@ class Amberdata extends LIBRARIES.Skill {
             }
           });
         }
-      };
+      }
+      else{
+        _intent.error(_socket, "noAPIKey");
+      }
     });
   }
 
